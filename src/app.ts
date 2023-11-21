@@ -1,11 +1,14 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express } from "express";
+import init from "./loaders/index";
 
-const app: Express = express();
+/// 启动服务
+async function startServer() {
+  const app: Express = express();
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Express + Typescript Server");
-});
+  await init({ expressApp: app });
+  app.listen(3000, () => {
+    console.log(`Your server is ready !`);
+  })
+}
 
-app.listen(3000, () => {
-  console.log("running at http://localhost:3000");
-});
+startServer();
