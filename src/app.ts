@@ -1,5 +1,5 @@
 import express, { Express } from "express";
-import init from "./loaders/index";
+import init from "./loaders";
 
 /// 启动服务
 async function startServer() {
