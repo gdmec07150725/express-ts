@@ -1,5 +1,4 @@
 import { Application, Request, Response } from "express";
-import * as bodyParser from "body-parser";
 import UserService from "../services/user";
 
 export default async ({ app }: { app: Application }) => {
@@ -12,7 +11,5 @@ export default async ({ app }: { app: Application }) => {
     const user = await UserService.login(loginBody);
     return res.json({ user: user });
   });
-
-  app.use(bodyParser.urlencoded({ extended: false }));
   return app;
 };
